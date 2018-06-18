@@ -1,4 +1,18 @@
 import collect
+from config import CONFIG
 
-for country in [('중국', 112), ('일본', 130), ('미국', 275)]:
-    collect.crawlling_foreign_visitor(country, 2017, 2017)
+if __name__ == '__main__':
+    #collect
+    collect.crawling_tourspot_visitor(
+        district=CONFIG['district'],
+        **CONFIG['common'])
+
+    for country in CONFIG['countries']:
+        collect.crawling_foreign_visitor(
+            country,
+            **CONFIG['common'])
+
+
+    #analysis
+
+    #visualize
